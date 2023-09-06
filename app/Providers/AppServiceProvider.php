@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Validator::extend('katakana', function ($attribute, $value, $parameters, $validator) {
-            return preg_match('/[ァ-ヴー]+/u', $value);
+            return(preg_match("/^[ァ-ヶ一]+/u", $value));
         });
 
         Paginator::useBootstrap();

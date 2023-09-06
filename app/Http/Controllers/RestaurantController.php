@@ -32,7 +32,7 @@ class RestaurantController extends Controller
     public function index(Request $request)
     {
         //$users = User::all();
-        $restaurants = Restaurant::with('categories')->orderBy('created_at', 'asc')->where(function ($query)
+        $restaurants = Restaurant::with('categories')->orderBy('id', 'asc')->where(function ($query)
         {
             // 検索機能
             if ($search = request('search')) {

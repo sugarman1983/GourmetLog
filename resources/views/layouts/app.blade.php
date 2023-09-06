@@ -75,12 +75,14 @@
         @endguest
 
         <main>
-            <div>
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2">
+                    @auth
+                    <div class="col-2 p-0">
                         @yield('sidebar')
                     </div>
-                    <div class="col-10">
+                    @endauth
+                    <div class="col">
                         <div class="py-4">
                             @yield('content_header')
                         </div>

@@ -5,11 +5,9 @@
 @include('common.sidebar')
 
 <!-- メイン部分 -->
-@extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row">
+<div>
+    <div>
         <div>
             {{ \Carbon\Carbon::now()->format('m月d日') }}
             <p>こんにちは{{ $user->name }}さん</p>
