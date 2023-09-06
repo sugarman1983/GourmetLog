@@ -75,7 +75,7 @@
         @endguest
 
         <main>
-            <div class="container">
+            <div>
                 <div class="row">
                     <div class="col-2">
                         @yield('sidebar')

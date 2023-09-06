@@ -42,7 +42,7 @@
                     <div class="form-group mb-3">
                         <label for="thumbnail">料理画像：</label>
                         @if ( isset($image_name))
-                            <img src="{{ asset('storage/tmp/' . $image_name) }}" alt="料理画像" height="200">
+                            <img src="{{ asset('storage/'.$dir . $image_name) }}" alt="料理画像" height="200">
                         @endif
                     </div>
 

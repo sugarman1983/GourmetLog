@@ -1,5 +1,5 @@
 @section('sidebar')
-    <div class="sidebar bg-info vh-100">
+    <div class="sidebar bg-info vh-100 p-2">
         <a class="navbar-brand" href="{{ url('/home') }}">
             {{ config('app.name', 'Gourmet Log') }}
         </a>
@@ -8,7 +8,7 @@
         <hr>
 
         <ul class="list-unstyled list-group">
-            <li class="mw-100">
+            <li>
                 <a href="{{ route('restaurants.index') }}" class="list-group-item-info list-group-item-action text-white" style="text-decoration:none;">お店リスト</a>
             </li>
             <li>

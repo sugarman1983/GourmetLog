@@ -238,9 +238,6 @@ class RestaurantController extends Controller
 
     public function update(Request $request)
     {
-        // ディレクトリ名
-        $dir = 'tmp/';
-
         $input = $request->only($this->editItems);
 
         $id = $request->id;
@@ -252,21 +249,24 @@ class RestaurantController extends Controller
             return redirect()->action([RestaurantController::class, 'call'], ['id' => $id])->withErrors($validator)->withInput();
         }
 
+        $image_name = $restaurant->food_picture;
+        // ディレクトリ名
+        $dir = 'pict/';
+
         if ( is_file($request->file('food_picture')) ) {
             $image_name = $request->file('food_picture')->getClientOriginalName();
+            $dir = 'tmp/';
             $request->file('food_picture')->storeAs('public/' . $dir, $image_name);
-            // $image_path = $dir . '/' . $image_name;
-        } else {
-            $image_name = null;
         };
 
         // セッションにフォームの内容を保存
         session(['id' => $id]);
         $request->session()->put("edit_input", $input);
         $request->session()->put("image_name", $image_name);
+        $request->session()->put("image_dir", $dir);
         
         $categories = Category::all();
-        return view("restaurants/edit_confirm", compact('id', 'input', 'categories', 'image_name'));
+        return view("restaurants/edit_confirm", compact('id', 'input', 'categories', 'image_name', 'dir'));
     }
 
     /**
